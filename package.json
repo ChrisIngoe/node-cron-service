@@ -1,0 +1,63 @@
+{
+  "name": "node-cron-service",
+  "version": "1.0.0",
+  "description": "Test NodeJs cron service",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "start-dev": "nodemon app.js",
+    "test": "nyc  --reporter=html --reporter=text mocha test --recursive --timeout 10000 --exit",
+    "test-enforce": "nyc  --reporter=html --reporter=text --check-coverage --statements 80 --functions 80 --lines 80 mocha test --recursive --timeout 10000 --exit",
+    "prettier-format": "prettier --config .prettierrc.json --write app test",
+    "prettier-check": "prettier --config .prettierrc.json --check app test",
+    "lint": "./node_modules/.bin/eslint --config ./.eslintrc.json --ignore-path .gitignore .",
+    "lint-fix": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix",
+    "lint-commit": "./node_modules/.bin/eslint . --config ./.eslintrc.json --ignore-path .gitignore"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisIngoe/node-cron-service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChrisIngoe/node-cron-service/issues"
+  },
+  "homepage": "https://github.com/ChrisIngoe/node-cron-service#readme",
+  "dependencies": {
+    "body-parser": "1.15.2",
+    "config": "^3.3.3",
+    "cors": "2.8.1",
+    "cron": "^1.5.0",
+    "express": "4.14.0",
+    "helmet": "3.1.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "4.15.0",
+    "eslint-plugin-security": "1.4.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.2",
+    "mocha": "^8.2.0",
+    "nodemon": "^2.0.6",
+    "nyc": "^15.1.0",
+    "prettier": "^2.1.2",
+    "sinon": "^9.2.1",
+    "superagent": "^6.1.0",
+    "supertest": "^5.0.0"
+  },
+  "engines": {
+    "node": "12.14.0",
+    "npm": "6.12.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "./node_modules/.bin/eslint --ignore-path .gitignore . --cache --fix",
+    "*.{js,css,md}": "prettier --write"
+  }
+}

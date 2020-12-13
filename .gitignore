@@ -64,6 +64,7 @@ typings/
 
 # Output of 'npm pack'
 *.tgz
+*.gz
 
 # Yarn Integrity file
 .yarn-integrity
@@ -102,3 +103,23 @@ dist
 
 # TernJS port file
 .tern-port
+
+
+# OS X
+.DS_Store*
+Icon?
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+.directory
+*~
+
+# Benchmarking
+benchmarks/graphs
+
+config/example.json
